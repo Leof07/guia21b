@@ -1,0 +1,63 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+jQuery(document).ready(function() {
+	function isScrolledTo(elem) {
+		var docViewTop = jQuery(window).scrollTop(); //num of pixels hidden above current screen
+		var docViewBottom = docViewTop + jQuery(window).height();
+
+		var elemTop = jQuery(elem).offset().top; //num of pixels above the elem
+		var elemBottom = elemTop + jQuery(elem).height();
+
+		return ((elemTop <= docViewTop));
+	}
+
+	var catcher = jQuery('#catcher');
+	var sticky = jQuery('#sticky');
+	
+	jQuery(window).scroll(function() {
+		if(isScrolledTo(sticky)) {
+			sticky.css('position','fixed');
+			sticky.css('top','0');
+			sticky.css('margin-top','0');
+		} 
+		var stopHeight = catcher.offset().top + catcher.height();
+		if ( stopHeight > sticky.offset().top) {
+			sticky.css('position','relative');
+			sticky.css('top', 'auto');
+			sticky.css('margin-top','30px');
+		}
+	});
+});
+
+}
+/*
+     FILE ARCHIVED ON 19:04:17 Apr 05, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:58:30 Aug 29, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 84.728
+  exclusion.robots: 0.069
+  exclusion.robots.policy: 0.063
+  RedisCDXSource: 1.526
+  esindex: 0.005
+  LoadShardBlock: 64.795 (3)
+  PetaboxLoader3.datanode: 62.506 (4)
+  CDXLines.iter: 16.612 (3)
+  load_resource: 183.52
+  PetaboxLoader3.resolve: 136.311
+*/

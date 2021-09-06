@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'MonacoRegular';
+    src: url('/web/20160406021812im_/http://webdesdecero.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco/monaco-webfont.eot');
+    src: url('/web/20160406021812im_/http://webdesdecero.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco/monaco-webfont.eot#iefix') format('embedded-opentype'),
+         url('/web/20160406021812im_/http://webdesdecero.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco/monaco-webfont.woff') format('woff'),
+         url('/web/20160406021812im_/http://webdesdecero.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco/monaco-webfont.ttf') format('truetype'),
+         url('/web/20160406021812im_/http://webdesdecero.com/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco/monaco-webfont.svg#MonacoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.crayon-font-monaco * {
+    font-family: Monaco, 'MonacoRegular', 'Courier New', monospace !important;
+}
+/*
+     FILE ARCHIVED ON 02:18:12 Apr 06, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:58:08 Aug 29, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  RedisCDXSource: 0.753
+  PetaboxLoader3.datanode: 100.573 (4)
+  exclusion.robots: 0.217
+  captures_list: 174.85
+  exclusion.robots.policy: 0.202
+  LoadShardBlock: 141.366 (3)
+  CDXLines.iter: 28.536 (3)
+  esindex: 0.015
+  PetaboxLoader3.resolve: 63.117
+  load_resource: 110.439
+*/

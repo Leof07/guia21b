@@ -1,0 +1,102 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+/*
+Plugin Name: WP Subscribe Pro
+Plugin URI: http://mythemeshop.com/plugins/wp-subscribe-pro/
+Description: WP Subscribe is a simple but powerful subscription plugin which supports MailChimp, Aweber and Feedburner.
+Author: MyThemeShop
+Author URI: http://mythemeshop.com/
+*/
+
+jQuery(document).ready(function($) {
+
+	// AJAX subscribe form
+	// currently only for MailChimp & GetResponse
+	$('.wp-subscribe-form').submit(function(e) {
+		var $this = $(this),
+			form_id = this.id;
+		if ($this.hasClass('wp-subscribe-feedburner') || $this.hasClass('wp-subscribe-aweber')) {
+			return true;
+		}
+		e.preventDefault();
+		var $widget = $this.closest('.wp-subscribe').addClass('loading');
+
+		// fix jquery sending placeholder value if field is empty
+		$this.find('input[type=text]').val(function(index, value) {
+			if (value == $(this).attr('placeholder'))
+				return '';
+			else
+				return value;
+		});
+
+		var fields = $this.serialize();
+
+		// Add "Anonymous" as name for GetResponse
+		// because it is required
+		var $name_field = $this.find('.name-field');
+		if (!$name_field.length || $name_field.val() == '')
+			fields += '&getresponse_name=Anonymous';
+
+		fields += '&action=validate_subscribe';
+		$.ajax({
+			url: wp_subscribe.ajaxurl,
+			type: 'POST',
+			dataType: 'text',
+			data: fields,
+		})
+		.done(function(data) {
+			$widget.removeClass('loading');
+			if (data == 'success') {
+				$this.hide();
+				$widget.find('.error').hide();
+				$widget.find('.thanks').show();
+				var thanks_page_url = $widget.data('thanks_page_url');
+				if ($widget.data('thanks_page') == '1' && thanks_page_url != '') {
+					// if ($widget.data('thanks_page_new_window') == '1') {
+						// window.open(thanks_page_url);
+					// } else {
+						window.location.href = thanks_page_url;
+					// }
+				}
+			} else if (data == 'error') {
+				$widget.find('.error').show(); // generic error
+			} else {
+				$widget.find('.error').show().html(data); // specific error
+			}
+		});
+		
+	});
+});
+
+}
+/*
+     FILE ARCHIVED ON 07:17:10 Jul 13, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:58:29 Aug 29, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  RedisCDXSource: 67.797
+  PetaboxLoader3.datanode: 98.329 (4)
+  exclusion.robots: 0.35
+  captures_list: 223.839
+  exclusion.robots.policy: 0.334
+  LoadShardBlock: 126.155 (3)
+  CDXLines.iter: 25.827 (3)
+  esindex: 0.011
+  PetaboxLoader3.resolve: 89.316
+  load_resource: 141.322
+*/
